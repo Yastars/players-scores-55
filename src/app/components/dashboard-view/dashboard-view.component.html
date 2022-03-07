@@ -1,0 +1,33 @@
+<section class="example-section" [formGroup]="playersCheckBox">
+    <h4>Select your playersCheckBox:</h4>
+    <p *ngFor="let playerName of playerNamesKeys"><mat-checkbox (change)="onSelectPlayers()" [formControlName]="playerName">{{playerName}}</mat-checkbox></p>
+    <!-- <p><mat-checkbox formControlName="larry">larry</mat-checkbox></p> -->
+  </section>
+  
+  <!-- <section class="example-section" [formGroup]="playersCheckBox">
+    <h4>You chose:</h4>
+    {{playersCheckBox.value | json}}
+</section> -->
+
+<p class="error" *ngIf="playersNamesFilter.length === 0"> Please select at least one player!</p>
+<google-chart 
+    
+    #chart
+    [type]="chartSettings.type" 
+
+    [data]="chartSettings.data" 
+
+    [columns]="chartSettings.columnNames" 
+
+    [options]="chartSettings.options" 
+
+    [width]="chartSettings.width"
+
+    [height]="chartSettings.height"
+    (select)="onSelect($event)"
+    >
+
+    
+
+</google-chart>
+
